@@ -4,17 +4,17 @@
     {
         public override void Visit(BoldText boldText)
         {
-            convertedDocument += "<b>" + boldText.Text + "</b>";
+            ConvertedDocument += "<b>" + boldText.Text + "</b>";
         }
 
         public override void Visit(Hyperlink hyperlink)
         {
-            convertedDocument += "<a href=\"" + hyperlink.Url + "\">" + hyperlink.Text + "</a>";
+            ConvertedDocument += "<a href=\"" + hyperlink.Url + "\">" + hyperlink.Text + "</a>";
         }
 
         public override void Visit(PlainText plainText)
         {
-            convertedDocument += plainText.Text;
+            ConvertedDocument += plainText.Text;
         }
     }
 }

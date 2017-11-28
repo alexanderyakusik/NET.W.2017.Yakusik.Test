@@ -4,7 +4,7 @@ namespace Task5.Solution.DocumentPartVisitors
 {
     public abstract class AbstractDocumentConverter : IDocumentPartVisitor
     {
-        protected string convertedDocument = string.Empty;
+        public string ConvertedDocument { get; protected set; } = string.Empty;
 
         public abstract void Visit(BoldText boldText);
 
@@ -19,7 +19,7 @@ namespace Task5.Solution.DocumentPartVisitors
                 Visit((dynamic)item);
             }
 
-            return convertedDocument;
+            return ConvertedDocument;
         }
     }
 }
