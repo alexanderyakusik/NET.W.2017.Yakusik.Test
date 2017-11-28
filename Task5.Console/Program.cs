@@ -1,8 +1,9 @@
-﻿namespace Task5.Console
+﻿using Task5.Solution.DocumentPartVisitors;
+
+namespace Task5.Console
 {
     using System.Collections.Generic;
     using System;
-    using Task5;
 
     class Program
     {
@@ -17,11 +18,19 @@
 
             Document document = new Document(parts);
 
-            Console.WriteLine(document.ToHtml());
+            var htmlConverter = new DocumentHtmlConverter();
 
-            Console.WriteLine(document.ToPlainText());
+            Console.WriteLine(document.Convert(htmlConverter));
 
-            Console.WriteLine(document.ToLaTeX());
+            var latexConverter = new DocumentLaTeXConverter();
+
+            Console.WriteLine(document.Convert(latexConverter));
+
+            var plainTextConverter = new DocumentPlainTextConverter();
+
+            Console.WriteLine(document.Convert(plainTextConverter));
+
+            Console.ReadLine();
         }
     }
 }
